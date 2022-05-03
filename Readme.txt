@@ -132,3 +132,14 @@ return (
 
 
 We have to use curly bracket to resolve the value stored in the varible in JSX
+...............................................................................................................
+
+
+
+
+
+
+npm install - reinstall all the required packages and dependencies for the project
+
+Note: if we hand over the complete website to the client we cannot give the node modules folder to them - which contains the require packages and dependencies for the projects.
+
