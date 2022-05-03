@@ -143,3 +143,6 @@ npm install - reinstall all the required packages and dependencies for the proje
 
 Note: if we hand over the complete website to the client we cannot give the node modules folder to them - which contains the require packages and dependencies for the projects.
 
+...............................................................................................................
+
+
