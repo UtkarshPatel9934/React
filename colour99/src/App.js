@@ -3,6 +3,7 @@ import './App.css'; // inport the css file to apply styles to the JSX Code
 
 // This statement added automatically when we write : <Navbar> in JSX
 import Navbar from './Components/Navbar';
+import TextForms from './Components/TextForms';
 
 // Anything which is written here will show up in the React App
 // start app by cmd:  npm start
@@ -33,6 +34,16 @@ function App() {
     {/* Calling the Components */}
     <Navbar title="Color99" home="Home" about="About Us"/>
     {/* <Navbar /> */}
+
+
+    <div className="container">
+
+    {/* Add the TextForms Components */}
+    <TextForms placeholder="Text goes here....." label="Enter Text to Convert Text to UpperCase"/>
+
+    </div>
+
+
     <img src={logo} className="App-logo" alt="logo" />
     </>
 
