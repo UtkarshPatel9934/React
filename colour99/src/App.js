@@ -39,7 +39,7 @@ function App() {
     <div className="container">
 
     {/* Add the TextForms Components */}
-    <TextForms placeholder="Text goes here....." label="Enter Text to Convert Text to UpperCase"/>
+    <TextForms placeholder="Text goes here....." label="Enter Text to Convert Text to UpperCase/LowerCase"/>
 
     </div>
 
