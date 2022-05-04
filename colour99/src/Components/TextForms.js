@@ -26,24 +26,32 @@ export default function TextForms(props) {
 		// alert('Btn has been clicked by you.....');
 		let newText = text.toUpperCase();
 		setText(newText);
+		if(newText)
+		{
+			props.setAlertMsg('Text has been converted to UpperCase!', 'warning')
+		}
 	}
 	const handleDownClick = () =>{
 		// alert('Btn has been clicked by you.....');
 		let newText = text.toLowerCase();
 		setText(newText);
+		if(newText)
+		{
+		props.setAlertMsg('Text has been converted to LowerCase!', 'warning')
+		}
 	}
 	const clearText = () =>{
 		// alert('Btn has been clicked by you.....');
 		let newText = '';
 		setText(newText);
+		props.setAlertMsg('Text has been deleted!', 'danger')
 	}
 	const copyText = (t) =>{
 		
 		var content = document.getElementById('myBox');
 		content.select();
 		document.execCommand('copy');
-	    
-		alert("Copied!");
+		props.setAlertMsg('Text has been Copied to Clipboard!', 'primary')
 	}
 
 	// in the onChange event we have an object called event
@@ -51,7 +59,6 @@ export default function TextForms(props) {
 		// we now able to type in th Textarea and set the text using the setText function
 		setText(event.target.value)
 	}
-
 
 
 	
@@ -62,7 +69,7 @@ export default function TextForms(props) {
 				<h1 htmlFor="myBox" className="form-label text-info">{props.label}</h1>
 				<textarea className={`form-control`} id="myBox" value={text} onChange={handleOnChange} rows="8" /* placeholder={props.placeholder} */></textarea>
 				<button type="button" onClick={handleUpClick} className="me-3 mt-3 btn btn-warning">Convert to Uppercase</button>
-				<button type="button" onClick={handleDownClick} className="mt-3 me-3 btn btn-primary">Convert to Lowercase</button>
+				<button type="button" onClick={handleDownClick} className="mt-3 me-3 btn btn-warning">Convert to Lowercase</button>
 				<button type="button" onClick={clearText} className="me-3 mt-3 btn btn-danger">Clear Text</button>
 				<button type="button" onClick={copyText} className="me-3 mt-3 btn btn-success">Copy Text</button>
 			</div>

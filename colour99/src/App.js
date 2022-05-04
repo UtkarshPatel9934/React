@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 //import logo from './logo.svg'; // we deleted the default generated JSX
 import './App.css'; // inport the css file to apply styles to the JSX Code
+import Alert from './Components/Alert';
 
 // import About from './Components/About';
 
@@ -43,15 +44,42 @@ function App() {
       setMode('dark')
       setText('Enable Light Mode')
       document.body.style.backgroundColor = 'black'
+
+      // calling setAlertMsg and pass 2 parameters msg and type
+      setAlertMsg('Dark mode has been enabled!', "success");
     }
     else
     {
       setMode('light')
       setText('Enable Dark Mode')
       document.body.style.backgroundColor = 'white'
+
+      // calling setAlertMsg and pass 2 parameters msg and type
+      setAlertMsg('Light mode has been enabled!', "success");
     }
     
   }
+
+
+  /* useState for the Alert Component */
+  // Alert is an object we will going to create....
+  const [alert, setAlert] = useState(null) // by default null
+
+
+  // setAlertMsg method to set the message in the Alert
+  var setAlertMsg  = (message, type) =>{
+    // now the dattype of the setAlert is Object before it was null
+    
+    
+    setAlert({
+      msg: message,
+      type: type
+    })
+        setTimeout(() => {
+          setAlert(null)
+        }, 1500);
+  }
+
 
   return (
 
@@ -61,11 +89,15 @@ function App() {
     <Navbar title="Color99" home="Home" about="About Us" mode={Mode} toggleMode={toggleMode} setText={text}/>
     {/* <Navbar /> */}
 
+    {/* Alert Component */}
+    <Alert alert={alert}/>
+    {/* Alert Component */}
+
 
     <div className="container">
 
     {/* Add the TextForms Components */}
-    <TextForms placeholder="Text goes here....." label="Enter Text to Convert Text to UpperCase/LowerCase" mode={Mode} toggleMode={toggleMode} setText={text}/>
+    <TextForms placeholder="Text goes here....." label="Enter Text to Convert Text to UpperCase/LowerCase" mode={Mode} toggleMode={toggleMode} setText={text} setAlertMsg={setAlertMsg}/>
 
     <img src={logo} className="App-logo" alt="logo" />
 
