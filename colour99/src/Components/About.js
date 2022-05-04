@@ -37,7 +37,7 @@ export default function About() {
 
 	
 	return ( 
-
+		<>
 		<div className="mt-5 container" style={myStyle}>
 
 			<h2>About Us</h2>
@@ -84,6 +84,6 @@ export default function About() {
 			<button onClick={toggleStyle} on type="button" className="btn btn-primary">{btnText}</button>
 			</div>
 		</div>
-
+		</>
 	)
 }

@@ -14,7 +14,7 @@ export default function TextForms(props) {
 	// 2. we cannot use like text = "jsdhfjh" to update the text in the textarea => WRONG WAY TO CHANGE THE STATE
 	// 3. we must use function to update it
 	// 4. to change the text we have to provide the function name in the below statement so we provide "setText" name
-	const [text, setText] = useState('Text goes here.....');
+	const [text, setText] = useState('');
 	
 	// 2. CORRECT WAY IS: 
 	// setText("This is set text");
@@ -54,24 +54,26 @@ export default function TextForms(props) {
 
 
 
+	
+
 	return (
 		<>
 			<div className="container my-5">
 				<h1 htmlFor="myBox" className="form-label text-info">{props.label}</h1>
-				<textarea className="form-control" id="myBox" value={text} onChange={handleOnChange} rows="8" /* placeholder={props.placeholder} */></textarea>
+				<textarea className={`form-control`} id="myBox" value={text} onChange={handleOnChange} rows="8" /* placeholder={props.placeholder} */></textarea>
 				<button type="button" onClick={handleUpClick} className="me-3 mt-3 btn btn-warning">Convert to Uppercase</button>
 				<button type="button" onClick={handleDownClick} className="mt-3 me-3 btn btn-primary">Convert to Lowercase</button>
 				<button type="button" onClick={clearText} className="me-3 mt-3 btn btn-danger">Clear Text</button>
 				<button type="button" onClick={copyText} className="me-3 mt-3 btn btn-success">Copy Text</button>
 			</div>
 
-			<div className="container my-5 text-center">
+			<div className={`container my-5 text-center text-${props.mode === 'light' ? 'dark' : 'light'}`}>
 				<h1 className='text-info'>Your Text Summary</h1>
-				<p className='text-danger'>{text.split(" ").length} words, {text.length} characters</p>
-				<p className='text-danger'>{0.008*text.split(" ").length} minutes read</p>
+				<p>{text.split(" ").length} words, {text.length} characters</p>
+				<p>{0.008*text.split(" ").length} minutes read</p>
 
 				<h2 className='text-start text-success'>Preview for Text</h2>
-				<p className='text-start text-danger'>{text}</p>
+				<p className={`text-start text-${props.mode === 'light' ? 'dark' : 'light'} `}>{text.length >0 ? text : "Enter some text to show Preview....." }</p>
 			</div>
 
 		</>
