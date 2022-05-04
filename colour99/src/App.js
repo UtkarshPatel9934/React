@@ -44,15 +44,17 @@ function App() {
       setMode('dark')
       setText('Enable Light Mode')
       document.body.style.backgroundColor = 'black'
-
+      document.title = "colour99 - Dark Mode";
       // calling setAlertMsg and pass 2 parameters msg and type
       setAlertMsg('Dark mode has been enabled!', "success");
+      
     }
     else
     {
       setMode('light')
       setText('Enable Dark Mode')
       document.body.style.backgroundColor = 'white'
+      document.title = "colour99 - Light Mode";
 
       // calling setAlertMsg and pass 2 parameters msg and type
       setAlertMsg('Light mode has been enabled!', "success");
