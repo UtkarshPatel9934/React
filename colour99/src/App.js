@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 import './App.css'; // inport the css file to apply styles to the JSX Code
 import Alert from './Components/Alert';
 
-// import About from './Components/About';
-
 // This statement added automatically when we write : <Navbar> in JSX
+
+import About from './Components/About';
 import Navbar from './Components/Navbar';
 import TextForms from './Components/TextForms';
 
@@ -16,8 +16,14 @@ import TextForms from './Components/TextForms';
 // we can import imgs like below:
 import logo from './logo.svg';
 
+
+
+
+
+
 // creating a variable:
 // let name = "Utkarsh Patel"
+
 
 
 
@@ -30,6 +36,16 @@ import logo from './logo.svg';
 /* Note */
 
 // let logo = "colour99/src/logo.svg" - Note we cannot use img like this
+
+
+
+
+
+/* Importing React Router Dom */
+import { Routes, Route, Link } from "react-router-dom";
+
+
+
 
 function App() {
   const [Mode, setMode] = useState('light') // to check dark mode is enable or not
@@ -87,19 +103,20 @@ function App() {
 
     // we have to use curly bracket to resolve the value stored in the varible in JSX
     <>
-    {/* Calling the Components */}
     <Navbar title="Color99" home="Home" about="About Us" mode={Mode} toggleMode={toggleMode} setText={text}/>
-    {/* <Navbar /> */}
-
-    {/* Alert Component */}
     <Alert alert={alert}/>
-    {/* Alert Component */}
 
 
     <div className="container">
 
+
+    <Routes>
+        <Route exact path="/" element={<TextForms placeholder="Text goes here....." label="Enter Text to Convert Text to UpperCase/LowerCase" mode={Mode} toggleMode={toggleMode} setText={text} setAlertMsg={setAlertMsg}/>} />
+        <Route exact path="/about" element={<About />} />
+    </Routes>
+
     {/* Add the TextForms Components */}
-    <TextForms placeholder="Text goes here....." label="Enter Text to Convert Text to UpperCase/LowerCase" mode={Mode} toggleMode={toggleMode} setText={text} setAlertMsg={setAlertMsg}/>
+    
 
     <img src={logo} className="App-logo" alt="logo" />
 
