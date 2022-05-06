@@ -111,7 +111,7 @@ function App() {
 
 
     <Routes>
-        <Route exact path="/" element={<TextForms placeholder="Text goes here....." label="Enter Text to Convert Text to UpperCase/LowerCase" mode={Mode} toggleMode={toggleMode} setText={text} setAlertMsg={setAlertMsg}/>} />
+        <Route exact path="/" element={<TextForms placeholder="Text goes here....." label="ediText - Word Counter, Character Counter, Remove Extra Spaces" mode={Mode} toggleMode={toggleMode} setText={text} setAlertMsg={setAlertMsg}/>} />
         <Route exact path="/about" element={<About />} />
     </Routes>
 
